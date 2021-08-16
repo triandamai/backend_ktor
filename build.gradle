@@ -19,7 +19,10 @@ dependencies {
     implementation "ch.qos.logback:logback-classic:$logback_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    implementation "io.ktor:ktor-jackson:$ktor_version"
+    implementation "io.ktor:ktor-gson:$ktor_version"
+    //https://github.com/valiktor/valiktor
+    implementation 'org.valiktor:valiktor-core:0.12.0'
+
 
     //db
     implementation "org.jetbrains.exposed:exposed-core:$exposed_version"

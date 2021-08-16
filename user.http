@@ -1,0 +1,12 @@
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+
+  "uid": "ini tes",
+  "name": "ini tes",
+  "provider": "ini tes",
+  "email": "ini tes",
+  "lastlogin": 1,
+  "registerDate": 1
+}

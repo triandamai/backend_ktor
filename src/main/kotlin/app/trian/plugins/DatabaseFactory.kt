@@ -1,20 +1,22 @@
 package app.trian.plugins
 
-import app.trian.data.Users
+import app.trian.data.users.Activitys
+import app.trian.data.users.UserProviders
+import app.trian.data.users.Users
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils.create
-import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.jetbrains.exposed.sql.transactions.transactionManager
 
 object DatabaseFactory {
-    var connection: HikariDataSource? = null
     fun init(){
         Database.connect(hikarilocal())
         transaction {
+            //user management
             create(Users)
+            create(Activitys, Users)
+            create(UserProviders, Users)
         }
     }
     private fun hikari():HikariDataSource{

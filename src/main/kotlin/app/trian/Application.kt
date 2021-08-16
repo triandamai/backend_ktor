@@ -1,11 +1,13 @@
 package app.trian
 
+import app.trian.controllers.configureRouting
 import io.ktor.application.*
 import app.trian.plugins.*
 import app.trian.services.UserService
-import com.fasterxml.jackson.databind.SerializationFeature
+
 import io.ktor.features.*
-import io.ktor.jackson.*
+import io.ktor.gson.*
+
 import io.ktor.routing.*
 
 
@@ -18,8 +20,10 @@ fun Application.module() {
     install(CallLogging)
     //serializable
     install(ContentNegotiation){
-        jackson {
-            configure(SerializationFeature.INDENT_OUTPUT,true)
+        gson {
+            setLenient()
+            setPrettyPrinting()
+            disableHtmlEscaping()
         }
     }
 
