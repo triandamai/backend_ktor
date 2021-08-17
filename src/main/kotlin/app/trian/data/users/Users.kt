@@ -7,8 +7,10 @@ object Users:Table() {
     val id = integer("id_user").autoIncrement()
     val uid=varchar("uid",255).uniqueIndex()
     val name= varchar("name",255)
-    val provider = varchar("provider",255)
     val email =varchar("email",255)
+    val provider = varchar("provider",255)
+    val username = varchar("username",255)
+    val password = varchar("password",255)
     val lastLogin= long("last_login")
     val registerDate=long("registerDate")
     override val primaryKey = PrimaryKey(id)
@@ -16,9 +18,12 @@ object Users:Table() {
 
 data class User(
     val id:Int?,
-    val uid:String,
+    val uid:String?,
     val name:String,
-    val provider:String,
     val email:String,
-    val lastlogin:Long,
-    val registerDate:Long)
+    val provider :String,
+    val username:String,
+    val password :String,
+    val lastlogin:Long?,
+    val registerDate:Long?
+    )
